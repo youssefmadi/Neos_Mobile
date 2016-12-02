@@ -27,7 +27,29 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
+        //alert("Current orientation: " + window.screen.orientation);
+         window.addEventListener("orientationchange", orientationChange, true);
+
+            function orientationChange(e) {
+                var currentOrientation = "";
+                if (window.orientation == 0) {
+                    resizePlayer();
+                    currentOrientation = "portrait";
+                } else if (window.orientation == 90) {
+                    resizePlayer();
+                    currentOrientation = "landscape";
+                } else if (window.orientation == -90) {
+                    resizePlayer();
+                    currentOrientation = "landscape";
+                } else if (window.orientation == 180) {
+                    resizePlayer();
+                    currentOrientation = "portrait";
+                }
+                //alert(currentOrientation);
+            }
+  
         this.receivedEvent('deviceready');
+         
     },
 
     // Update DOM on a Received Event

@@ -134,24 +134,26 @@ $( window ).resize(function() {
     $(".loader,.loaderText").center();
 });
 
-$(window).on( "orientationchange", function( event ) {
-    resizePlayer();
-    
-});
 
 
 function resizePlayer(){
+    
     var h = parseInt($(window).height())-50;
     var w = $(window).width();
 
-    $("#page-content-wrapper").width(w-15);
+    //$("#page-content-wrapper").width(w-15);
+    
+   // $("#video").width(w);
+    //$("#iosplayer").width(w);
     
     if(window.innerHeight > window.innerWidth){
        
     }else{
          $("#video").height(h);
          $("#iosplayer").height(h);
+         //$("#video").width(w);
     }
+   
 }
 
 
