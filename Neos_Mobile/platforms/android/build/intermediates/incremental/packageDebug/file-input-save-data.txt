@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Dec 02 15:54:52 EET 2016
+#Tue Dec 06 12:52:13 EET 2016
 122.file=C\:\\Users\\NeosAdmin\\Documents\\NetBeansProjects\\Neos_Mobile\\platforms\\android\\build\\intermediates\\assets\\debug\\www\\js\\vod_list.js
 60.set=ASSET
 129.file=C\:\\Users\\NeosAdmin\\Documents\\NetBeansProjects\\Neos_Mobile\\platforms\\android\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\FileUploadOptions.js

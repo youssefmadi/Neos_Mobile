@@ -1,4 +1,5 @@
 var liveChannels = new Array();
+var hls = null;
 
 $(document).ready(function () {
     $(".loader,.loaderText").center();
@@ -48,6 +49,10 @@ function getURL(id){
 }
 
 function clean(){
+    if(hls != null){
+        hls.destroy();
+        hls =null;
+    }
     $("#content").empty();
 }
 
@@ -188,7 +193,7 @@ function playChannel(id){
 function playURL(url){
     var video = document.getElementById('video');
     if(Hls.isSupported()) {
-        var hls = new Hls();
+        hls = new Hls();
         hls.loadSource(url);
         hls.attachMedia(video);
         hls.on(Hls.Events.MANIFEST_PARSED,function() {
