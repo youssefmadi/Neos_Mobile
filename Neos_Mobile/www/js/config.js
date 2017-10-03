@@ -1,4 +1,4 @@
-var LIVETV_URL = "http://109.233.16.30/neosBackoffice/services/dune/channels.json.php";
+var LIVETV_URL = "http://91.151.234.164/backoffice/backoffice/services/dune/channels.json.php";
 //var LIVETV_URL = "js/channels.js";
 
 var mainMenu = new Array();
