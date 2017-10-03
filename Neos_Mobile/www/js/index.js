@@ -29,6 +29,8 @@ var app = {
     onDeviceReady: function() {
         //alert("Current orientation: " + window.screen.orientation);
          window.addEventListener("orientationchange", orientationChange, true);
+ 
+         window.plugins.insomnia.keepAwake();
 
             function orientationChange(e) {
                 var currentOrientation = "";
@@ -49,6 +51,7 @@ var app = {
             }
   
         this.receivedEvent('deviceready');
+        
          
     },
 
