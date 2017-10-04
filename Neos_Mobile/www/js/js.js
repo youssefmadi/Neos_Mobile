@@ -34,7 +34,7 @@ function prepareData(){
         });
     }).done(function () {
         //$(".loader,.loaderText,.loaderBlocker").hide();
-        setTimeout(function(){chooseMenu(7);playChannel(1);$(".splash").hide();$("#wrapper").toggleClass("toggled");},1000);
+        setTimeout(function(){chooseMenu(7);$(".splash").hide();$("#wrapper").toggleClass("toggled");},1000);
     })
     .success(function() { $(".loader,.loaderText,.loaderBlocker").hide(); })
     .error(function() { $(".loader,.loaderText,.loaderBlocker").hide();bootbox.alert("Check you network connection"); })
