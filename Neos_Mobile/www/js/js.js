@@ -172,8 +172,11 @@ function playChannel(id){
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         var type = getMobileOperatingSystem();
         if(type == "Android"){
-            var video = document.getElementById('video');
+            if($("#video").length>0){
+                var video = document.getElementById('video');
             video.pause();
+            }
+            
             $("#player_area").empty();
             $("#player_area").append(JSPlayer());
             resizePlayer();
