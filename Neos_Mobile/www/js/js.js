@@ -65,7 +65,7 @@ function selectMenu(menuId){
 function liveTv(){
     var firstCh = null;
     $("#content").append("<div class='col-lg-9 col-md-9 col-sm-12 col-xs-12 pr0' id='player_area'></div>");
-    $("#content").append("<div class='col-lg-3 col-md-3 col-sm-12 col-xs-12' id='channelList'><ul id='channelListLi'></ul></div>");//
+    $("#content").append("<div class='col-lg-3 col-md-3 col-sm-12 col-xs-12' id='channelList'><ul id='channelListLi'></ul></div>");
     for (i = 0; i < liveChannels.length; i++) {
         if(firstCh == null) firstCh = liveChannels[i].id;
         $("#channelListLi").append("<li class='channel plr2' onClick='playChannel("+liveChannels[i].id+")'><span class='icon-television' aria-hidden='true'></span>&nbsp;&nbsp;"+liveChannels[i].title+"</li>");
@@ -172,10 +172,12 @@ function playChannel(id){
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         var type = getMobileOperatingSystem();
         if(type == "Android"){
+            var video = document.getElementById('video');
+            video.pause();
             $("#player_area").empty();
             $("#player_area").append(JSPlayer());
             resizePlayer();
-             playURL(getURL(id));
+            playURL(getURL(id));
         }else if(type== "iOS"){
             $("#player_area").empty();
             $("#player_area").append(iosPlayer(getURL(id)));
