@@ -2,7 +2,7 @@ var liveChannels = new Array();
 var hls = null;
 
 $(document).ready(function () {
-    $(".loader,.loaderText").center();
+    //$(".loader,.loaderText").center();
     for (i = 0; i < mainMenu.length; i++) {
         for (j = 0; j < mainMenu.length; j++) {
             if (mainMenu[j].order === i) {
@@ -33,11 +33,12 @@ function prepareData(){
             liveChannels.push({id:val.id,title:val.name,ip:val.ip});
         });
     }).done(function () {
-        $(".loader,.loaderText,.loaderBlocker").hide();
+        //$(".loader,.loaderText,.loaderBlocker").hide();
+        setTimeout(function(){chooseMenu(7);playChannel(1);$(".splash").hide();},1000);
     })
     .success(function() { $(".loader,.loaderText,.loaderBlocker").hide(); })
     .error(function() { $(".loader,.loaderText,.loaderBlocker").hide();bootbox.alert("Check you network connection"); })
-    .complete(function() {$(".loader,.loaderText,.loaderBlocker").hide();});;
+    .complete(function() {$(".loader,.loaderText,.loaderBlocker").hide();});
 }
 
 function getURL(id){
@@ -81,7 +82,7 @@ function getRandomInt(min,max) {
 
 function vodList(){
     for (i = 0; i < movies.length; i++) {
-        $("#content").append("<div class='col-lg-4 col-md-4 col-sm-12 col-xs-12 vodItems' id='m_"+movies[i].id+"'><div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 vodItems_'><table class='vod_info'><tr><td class='vod_info_img' onclick='playMovie("+movies[i].id+")'><img src='vod/"+movies[i].title+".jpg' /></td><td class='vod_info_desc'><b> Movie name:</b>"+movies[i].title+"<br/><b>Description:</b>"+movies[i].description+"<br/><b>Stars:</b>"+movies[i].stars+"</td></tr></table></div></div>");
+        $("#content").append("<div class='col-lg-4 col-md-4 col-sm-12 col-xs-12 vodItems' id='m_"+movies[i].id+"'><div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 vodItems_'><table class='vod_info'><tr><td class='vod_info_img' onclick='playMovie("+movies[i].id+")'><img src='"+movies[i].poster+"' /></td><td class='vod_info_desc'><b> Movie name:</b>"+movies[i].title+"<br/><b>Description:</b>"+movies[i].description+"<br/><b>Stars:</b>"+movies[i].stars+"</td></tr></table></div></div>");
     }
     resizePlayer();
 }
