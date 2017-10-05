@@ -5,7 +5,7 @@ var mainMenu = new Array();
 mainMenu.push({id:"0",title:"Tv Sync",icon:"icon-television",order:0,enabled:false});
 mainMenu.push({id:"1",title:"Music",icon:"icon-television",order:7,enabled:false});
 mainMenu.push({id:"2",title:"Movies",icon:"icon-film",order:2,enabled:true});
-mainMenu.push({id:"3",title:"News",icon:"icon-television",order:3,enabled:true});
+mainMenu.push({id:"3",title:"News",icon:"icon-television",order:3,enabled:false});
 mainMenu.push({id:"4",title:"Weather",icon:"icon-television",order:4,enabled:false});
 mainMenu.push({id:"5",title:"Guest Services",icon:"icon-television",order:5,enabled:false});
 mainMenu.push({id:"6",title:"In Room Dining",icon:"icon-television",order:6,enabled:false});
