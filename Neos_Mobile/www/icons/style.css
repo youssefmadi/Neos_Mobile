@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?em1yqu');
-  src:  url('fonts/icomoon.eot?em1yqu#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?em1yqu') format('truetype'),
-    url('fonts/icomoon.woff?em1yqu') format('woff'),
-    url('fonts/icomoon.svg?em1yqu#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?pkg1mu');
+  src:  url('fonts/icomoon.eot?pkg1mu#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?pkg1mu') format('truetype'),
+    url('fonts/icomoon.woff?pkg1mu') format('woff'),
+    url('fonts/icomoon.svg?pkg1mu#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,13 +24,36 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-language:before {
+  content: "\e907";
+  color: #fff;
+}
+.icon-profile:before {
+  content: "\e908";
+  color: #fff;
+}
+.icon-music:before {
+  content: "\e904";
+  color: #fff;
+}
+.icon-news:before {
+  content: "\e905";
+  color: #fff;
+}
+.icon-radio:before {
+  content: "\e906";
+  color: #fff;
+}
 .icon-film:before {
   content: "\e900";
 }
 .icon-list:before {
   content: "\e901";
 }
-.icon-television:before {
+.icon-sun:before {
   content: "\e902";
+  color: #fff;
 }
-
+.icon-television:before {
+  content: "\e903";
+}
