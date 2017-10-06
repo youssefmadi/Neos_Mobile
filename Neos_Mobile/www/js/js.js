@@ -10,7 +10,7 @@ $(document).ready(function () {
                     if (mainMenu[j].enabled) {
                         $("#sidebar-nav").append("<li id="+mainMenu[j].id+" onclick='chooseMenu("+mainMenu[j].id+")'><span class='"+mainMenu[j].icon+"' aria-hidden='true'></span><a href='#'>"+mainMenu[j].title+"</a></li>");                
                     }else{
-                        $("#sidebar-nav").append("<li id="+mainMenu[j].id+"><span class='"+mainMenu[j].icon+"' aria-hidden='true'></span><a href='#'>"+mainMenu[j].title+"</a></li>");                
+                        $("#sidebar-nav").append("<li id="+mainMenu[j].id+"><span class='"+mainMenu[j].icon+"' aria-hidden='true'></span><a href='#'>"+mainMenu[j].title+" <b class='locked' aria-hidden='true'>&nbsp;Locked</b></a></li>");                
                     }
                 }
             }
