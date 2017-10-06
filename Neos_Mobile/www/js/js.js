@@ -6,8 +6,12 @@ $(document).ready(function () {
     for (i = 0; i < mainMenu.length; i++) {
         for (j = 0; j < mainMenu.length; j++) {
             if (mainMenu[j].order === i) {
-                if (mainMenu[j].enabled) {
-                    $("#sidebar-nav").append("<li id="+mainMenu[j].id+" onclick='chooseMenu("+mainMenu[j].id+")'><span class='"+mainMenu[j].icon+"' aria-hidden='true'></span><a href='#'>"+mainMenu[j].title+"</a></li>");                
+                if (mainMenu[j].deleted === 0) {
+                    if (mainMenu[j].enabled) {
+                        $("#sidebar-nav").append("<li id="+mainMenu[j].id+" onclick='chooseMenu("+mainMenu[j].id+")'><span class='"+mainMenu[j].icon+"' aria-hidden='true'></span><a href='#'>"+mainMenu[j].title+"</a></li>");                
+                    }else{
+                        $("#sidebar-nav").append("<li id="+mainMenu[j].id+"><span class='"+mainMenu[j].icon+"' aria-hidden='true'></span><a href='#'>"+mainMenu[j].title+"</a></li>");                
+                    }
                 }
             }
         }
@@ -117,10 +121,13 @@ function playMovie(id){
     for (i = 0; i < movies.length; i++) {
         if(movies[i].id == id){
             clean();
+           
             if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                 
                 var type = getMobileOperatingSystem();
                 if(type == "Android"){
                     $("#content").prepend("<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 pr0 vod_player_stage'>"+JSPlayer()+"</div>");
+                    //alert(movies[i].path);
                     playURL(movies[i].path);
                 }else if(type== "iOS"){
                     $("#content").prepend("<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 pr0 vod_player_stage'>"+iosPlayer(movies[i].path)+"</div>");
@@ -198,6 +205,7 @@ function playChannel(id){
 
 function playURL(url){
     var video = document.getElementById('video');
+
     if(Hls.isSupported()) {
         hls = new Hls();
         hls.loadSource(url);
