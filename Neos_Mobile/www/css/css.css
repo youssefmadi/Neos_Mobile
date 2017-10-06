@@ -298,6 +298,10 @@ p{
       z-index: 9998;
       opacity: 0.5;
 }
+.locked{
+    font-size: 14px !important;
+    color: rgba(0,159,226,0.7) !important;
+}
 
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
