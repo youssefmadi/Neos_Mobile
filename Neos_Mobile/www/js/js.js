@@ -58,6 +58,8 @@ function clean(){
         hls.destroy();
         hls =null;
     }
+    newsCategoryScroll=null;
+    weatherCategoryScroll=null;
     $("#content").empty();
 }
 
@@ -223,18 +225,22 @@ function chooseMenu(menuId){
     clean();
     selectMenu(menuId);
     switch (menuId) {
-        case 7: //Live TV
+        case 7:
             liveTv();
             $("#wrapper").toggleClass("toggled");
             break;
-        case 2: //Live TV
+        case 2:
             vodList();
             $("#wrapper").toggleClass("toggled");
             break;  
-        case 3: //Live TV
+        case 3:
             createNewsCategories();
             $("#wrapper").toggleClass("toggled");
-            break;  
+            break;
+        case 4:
+            prepareWeather();
+            $("#wrapper").toggleClass("toggled");
+            break;
     }
 }
 

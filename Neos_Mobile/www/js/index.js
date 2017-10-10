@@ -32,23 +32,33 @@ var app = {
  
          window.plugins.insomnia.keepAwake();
 
-            function orientationChange(e) {
-                var currentOrientation = "";
-                if (window.orientation == 0) {
-                    resizePlayer();
-                    currentOrientation = "portrait";
-                } else if (window.orientation == 90) {
-                    resizePlayer();
-                    currentOrientation = "landscape";
-                } else if (window.orientation == -90) {
-                    resizePlayer();
-                    currentOrientation = "landscape";
-                } else if (window.orientation == 180) {
-                    resizePlayer();
-                    currentOrientation = "portrait";
-                }
-                //alert(currentOrientation);
+        function orientationChange(e) {
+            var currentOrientation = "";
+            if (window.orientation == 0) {
+                resizePlayer();
+                currentOrientation = "portrait";
+            } else if (window.orientation == 90) {
+                resizePlayer();
+                currentOrientation = "landscape";
+            } else if (window.orientation == -90) {
+                resizePlayer();
+                currentOrientation = "landscape";
+            } else if (window.orientation == 180) {
+                resizePlayer();
+                currentOrientation = "portrait";
             }
+            //alert(currentOrientation);
+        }
+        
+        /* Clear cash */
+        var success = function(status) {
+            alert('Message: ' + status);
+        };
+        var error = function(status) {
+            alert('Error: ' + status);
+        };
+        window.cache.clear( success, error );
+        /* End Clear Cash */
   
         this.receivedEvent('deviceready');
         
