@@ -199,30 +199,30 @@ p{
     margin-top: 5px;
 }
 
-#newCatList{
+#newCatList,#newCityList{
     list-style: none;
     padding-left: 0px;
 }
 
-#newCatList li{
+#newCatList li,#newCityList li{
    background-color: #00A0E3;
    margin-top: 2px;
    height: 45px;
    padding-top: 5px;
 }
 
-#newCatList li a{
+#newCatList li a, #newCityList li a{
    color: #ffffff;
    font-size: 20px;
    font-family: OswaldLight !important;
 }
 
-#newCatListDetails{
+#newCatListDetails,#newCityListDetails{
     list-style: none;
     padding-left: 0px;
 }
 
-#newCatListDetails li{
+#newCatListDetails li,#newCityListDetails li{
    background-color: #c3e6f7;
    opacity: 1;
    margin-top: 2px;
@@ -230,7 +230,7 @@ p{
    padding-left: 5px;
 }
 
-#newCatListDetails li a{
+#newCatListDetails li a,#newCityListDetails li a{
    color: #000;
    font-size: 20px;
    font-family: OswaldLight !important;
