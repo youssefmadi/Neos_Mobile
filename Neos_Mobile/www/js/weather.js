@@ -92,11 +92,11 @@ function weatherDetailsOnScreenSize() {
     if ($("#newCityListContainerDetails li").length > 0) {
         $("#newCityListContainerDetails").css("margin-top", $(".topHeader").height() + "px !important;");
         $("#newCityListContainerDetails").height($(window).height() - $(".topHeader").height());
-        if (newsScroll == null) {
-            setTimeout("newsScroll = applyScroll('newCityListContainerDetails')", 100);
+        if (weatherDetailsScroll == null) {
+            setTimeout("weatherDetailsScroll = applyScroll('newCityListContainerDetails')", 100);
             //newsScroll.scrollTo(0, 0);
         } else {
-            setTimeout("newsScroll.refresh()", 100);
+            setTimeout("weatherDetailsScroll.refresh()", 100);
              //newsScroll.scrollTo(0, 0);
         }
     }

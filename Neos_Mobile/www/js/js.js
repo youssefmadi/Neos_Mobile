@@ -59,7 +59,9 @@ function clean(){
         hls =null;
     }
     newsCategoryScroll=null;
+    newsScroll = null;
     weatherCategoryScroll=null;
+    weatherDetailsScroll = null;
     $("#content").empty();
 }
 
