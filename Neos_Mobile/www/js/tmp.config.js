@@ -3,7 +3,7 @@ var LIVETV_URL = "http://91.151.234.164/backoffice/backoffice/services/dune/chan
 
 var mainMenu = new Array();
 mainMenu.push({id:"0",title:"Tv Sync",icon:"icon-television",order:0,enabled:false,deleted:1});
-mainMenu.push({id:"1",title:"Music",icon:"icon-music",order:7,enabled:false,deleted:1});
+mainMenu.push({id:"1",title:"Music",icon:"icon-music",order:7,enabled:false,deleted:0});
 mainMenu.push({id:"2",title:"Movies",icon:"icon-film",order:2,enabled:true,deleted:0});
 mainMenu.push({id:"3",title:"News",icon:"icon-news",order:3,enabled:true,deleted:0});
 mainMenu.push({id:"4",title:"Weather",icon:"icon-sun",order:4,enabled:false,deleted:0});
