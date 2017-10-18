@@ -305,7 +305,7 @@ p{
 
 .radio_title{
     font-size: 16px;
-    color: black;
+    color: #CCC;
 }
 
 @-webkit-keyframes spin {
