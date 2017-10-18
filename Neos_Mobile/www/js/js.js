@@ -243,6 +243,10 @@ function chooseMenu(menuId){
             prepareWeather();
             $("#wrapper").toggleClass("toggled");
             break;
+        case 8:
+            prepareWorldRadio();
+            $("#wrapper").toggleClass("toggled");
+            break;    
     }
 }
 
