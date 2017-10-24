@@ -175,9 +175,7 @@ function resizePlayer(){
 
 
 function JSPlayer(){
-    //var pl = '<video width="100%" style="height:306px;background-color:#000;" id="video" class="video-js vjs-default-skin" controls="" autoplay="true" src=""></video>';
-     var pl = '<video width="100%" style="height:306px;background-color:#000;" id="video" controls="" autoplay="true" src=""></video>';
-
+    var pl = '<video width="100%" style="height:306px;background-color:#000;" id="video" class="video-js vjs-default-skin" controls="" autoplay="true" src=""></video>';
     return pl;
 }
 
@@ -205,17 +203,13 @@ function playChannel(id){
         $("#player_area").empty();
         $("#player_area").append(JSPlayer());
         resizePlayer();
-        playURL(getURL(id));
+         playURL(getURL(id));
     }
 }
 
 function playURL(url){
     var video = document.getElementById('video');
-    
-    video.src = url;
-    video.load();
-    video.play();
-    /*
+
     if(Hls.isSupported()) {
         hls = new Hls();
         hls.loadSource(url);
@@ -226,7 +220,6 @@ function playURL(url){
 
         });
     }
-    */
 }
 
 
