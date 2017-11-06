@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="com.coolappz.Neos_LiveTV" version="1.0.7">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="com.coolappz.Neos_LiveTV" version="1.0.8">
     <name>Neos TV</name>
     <description>
         Neos Interactive
@@ -32,5 +32,9 @@
     </platform>
     <feature name="Insomnia">
         <param name="android-package" value="nl.xservices.plugins.Insomnia" />
+    </feature>
+    <feature name="DisableHttpCachePlugin">
+        <param name="android-package" value="koenromers.DisableHttpCachePlugin"/>
+        <param name="onload" value="true" />
     </feature>
 </widget>
