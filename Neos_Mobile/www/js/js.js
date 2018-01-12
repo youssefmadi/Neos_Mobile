@@ -184,11 +184,14 @@ function playChannel(id){
         var type = getMobileOperatingSystem();
         if(type == "Android"){
             if($("#video").length>0){
-                var video = document.getElementById('video');
-            video.pause();
+                //var video = document.getElementById('video');
+                //video.pause();
+                hls.destroy();
+                $("#video").remove();
             }
             
             $("#player_area").empty();
+            
             $("#player_area").append(JSPlayer());
             resizePlayer();
             playURL(getURL(id));
