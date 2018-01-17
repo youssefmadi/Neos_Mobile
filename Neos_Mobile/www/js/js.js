@@ -34,7 +34,6 @@ $(document).ready(function () {
 });
 
 function checkIfLoggedIn(){
-    alert(logged);
     if(logged==1){
         return true;
     }else{
@@ -235,22 +234,28 @@ function JSPlayer(){
 }
 
 function playChannel(id){
-
+    
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         var type = getMobileOperatingSystem();
         if(type == "Android"){
+            
             if($("#video").length>0){
                 //var video = document.getElementById('video');
                 //video.pause();
-                hls.destroy();
+                if(hls != null){
+                    hls.destroy();
+                }
                 $("#video").remove();
             }
-
+            
             $("#player_area").empty();
 
             $("#player_area").append(JSPlayer());
             resizePlayer();
+            
+            //alert(checkIfLoggedIn());
             if(checkIfLoggedIn()){
+                //alert("HERE");
                 playURL(getURL(id));
             }
         }else if(type== "iOS"){
