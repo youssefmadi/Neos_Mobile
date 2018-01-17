@@ -1,5 +1,7 @@
 var liveChannels = new Array();
 var hls = null;
+var logged = 0;
+var firstCh = null;
 
 $(document).ready(function () {
     //$(".loader,.loaderText").center();
@@ -19,7 +21,9 @@ $(document).ready(function () {
     
     $("#tog_menu").click(function (e) {
         e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+        if(logged){
+            $("#wrapper").toggleClass("toggled");
+        }
     });
     
     newsCategories();
@@ -28,6 +32,56 @@ $(document).ready(function () {
     resizePlayer();
     
 });
+
+function checkIfLoggedIn(){
+    if(logged){
+        return true;
+    }else{
+        showLoginBox();
+        return false;
+    }
+}
+
+function showLoginBox(){
+    $('#login_form').remove();
+    $("body").append('<div class="row" id="login_form" method="post">\n\
+        <form>\n\
+            <div class="form-group">\n\
+                <label for="username">Username</label>\n\
+                <input class="form-control input-sm" name="username" id="username" type="text" autocomplete="off">\n\
+            </div>\n\
+            <div class="form-group">\n\
+                <label for="password">Password</label>\n\
+                <input class="form-control input-sm" name="password" id="password" type="text">\n\
+            </div>\n\
+            <input type="submit" class="btn btn-info" value="Login">\n\
+        </form>\n\
+    </div>');
+    $('form').on('submit', function (e) {
+        $.ajax({
+            type: 'post',
+            url: LOGIN_POST,
+            data: $(this).serialize(),
+            success: function (data) {
+                if(data[0]==1){
+                    logged = 1;
+                    $('#login_form').remove();
+                    playChannel(firstCh);
+                }else{
+                    alert("Wrong Username or Password");
+                }
+            }
+        });
+        e.preventDefault();
+    });
+    $('#login_form').css({
+        'position' : 'absolute',
+        'left' : '50%',
+        'top' : '50%',
+        'margin-left' : -$('#login_form').outerWidth()/2,
+        'margin-top' : -$('#login_form').outerHeight()/2
+    });
+}
 
 function prepareData(){
     $(".loader,.loaderText,.loaderBlocker").show();
@@ -71,7 +125,7 @@ function selectMenu(menuId){
 }
 
 function liveTv(){
-    var firstCh = null;
+    
     $("#content").append("<div class='col-lg-9 col-md-9 col-sm-12 col-xs-12 pr0' id='player_area'></div>");
     $("#content").append("<div class='col-lg-3 col-md-3 col-sm-12 col-xs-12' id='channelList'><ul id='channelListLi'></ul></div>");
     for (i = 0; i < liveChannels.length; i++) {
@@ -180,6 +234,7 @@ function JSPlayer(){
 }
 
 function playChannel(id){
+
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         var type = getMobileOperatingSystem();
         if(type == "Android"){
@@ -189,24 +244,32 @@ function playChannel(id){
                 hls.destroy();
                 $("#video").remove();
             }
-            
+
             $("#player_area").empty();
-            
+
             $("#player_area").append(JSPlayer());
             resizePlayer();
-            playURL(getURL(id));
+            if(checkIfLoggedIn()){
+                playURL(getURL(id));
+            }
         }else if(type== "iOS"){
             $("#player_area").empty();
             $("#player_area").append(iosPlayer(getURL(id)));
             resizePlayer();
             var video = document.getElementById('iosplayer');
-            video.play();
+            
+            if(checkIfLoggedIn()){
+                video.play();
+            }
         }
     }else{
         $("#player_area").empty();
         $("#player_area").append(JSPlayer());
         resizePlayer();
-         playURL(getURL(id));
+        
+        if(checkIfLoggedIn()){
+             playURL(getURL(id));
+        }
     }
 }
 
@@ -251,6 +314,7 @@ function chooseMenu(menuId){
             $("#wrapper").toggleClass("toggled");
             break;    
     }
+    checkIfLoggedIn();
 }
 
 jQuery.fn.center = function () {
