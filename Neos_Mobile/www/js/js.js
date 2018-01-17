@@ -34,7 +34,9 @@ $(document).ready(function () {
 });
 
 function checkIfLoggedIn(){
-    if(logged==1){
+    var timeStampInMs = Math.floor(Date.now() / 1000);
+    if(logged>0 && timeStampInMs<logged){
+        
         return true;
     }else{
         showLoginBox();
@@ -63,8 +65,8 @@ function showLoginBox(){
             url: LOGIN_POST,
             data: $(this).serialize(),
             success: function (data) {
-                if(data[0]==1){
-                    logged = 1;
+                if(data[0]>0){
+                    logged = data[0];
                     $('#login_form').remove();
                     playChannel(firstCh);
                 }else{
