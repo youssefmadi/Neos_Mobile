@@ -34,7 +34,8 @@ $(document).ready(function () {
 });
 
 function checkIfLoggedIn(){
-    if(logged){
+    alert(logged);
+    if(logged==1){
         return true;
     }else{
         showLoginBox();
@@ -52,7 +53,7 @@ function showLoginBox(){
             </div>\n\
             <div class="form-group">\n\
                 <label for="password">Password</label>\n\
-                <input class="form-control input-sm" name="password" id="password" type="text">\n\
+                <input class="form-control input-sm" name="password" id="password" type="password">\n\
             </div>\n\
             <input type="submit" class="btn btn-info" value="Login">\n\
         </form>\n\
