@@ -127,7 +127,7 @@ function selectMenu(menuId){
 }
 
 function push_tv(url){
-    var jqxhr = $.getJSON("http://"+stb_ip+"/cgi-bin/do?cmd=start_file_playback&media_url="+url, function() {
+    $.getJSON("http://"+stb_ip+"/cgi-bin/do?cmd=start_file_playback&media_url="+url, function() {
         
     }).done(function() {
           
