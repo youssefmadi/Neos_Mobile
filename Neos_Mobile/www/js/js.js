@@ -145,7 +145,7 @@ function liveTv(){
     for (i = 0; i < liveChannels.length; i++) {
         var ptv = "";
         if(push_on_tv==1){
-            ptv="<span class='push_tv_' onclick='push_tv(\""+getURL(liveChannels[i].id)+"\")'><button type='button' class='btn btn-primary'>Push On TV</button></span>";
+            ptv="<span class='push_tv_' onclick='push_tv(\""+getURL(liveChannels[i].id)+"\");return false;'><button type='button' class='btn btn-primary'>Push On TV</button></span>";
         }
         
         if(firstCh == null) firstCh = liveChannels[i].id;
