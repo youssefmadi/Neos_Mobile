@@ -127,7 +127,7 @@ function selectMenu(menuId){
 }
 
 function push_tv(url){
-    var jqxhr = $.getJSON("http://10.3.2.108/cgi-bin/do?cmd=start_file_playback&media_url=udp://@232.1.1.113:1234", function() {
+    var jqxhr = $.getJSON("http://"+stb_ip+"/cgi-bin/do?cmd=start_file_playback&media_url="+url, function() {
         
     }).done(function() {
           
@@ -145,7 +145,7 @@ function liveTv(){
     for (i = 0; i < liveChannels.length; i++) {
         var ptv = "";
         if(push_on_tv==1){
-            ptv="<span class='push_tv_' onclick='push_tv(\""+getURL(liveChannels[i].id)+"\")'><button type='button' class='btn btn-primary'>On TV</button></span>";
+            ptv="<span class='push_tv_' onclick='push_tv(\""+getURL(liveChannels[i].id)+"\")'><button type='button' class='btn btn-primary'>Push On TV</button></span>";
         }
         
         if(firstCh == null) firstCh = liveChannels[i].id;
