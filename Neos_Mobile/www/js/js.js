@@ -149,7 +149,7 @@ function liveTv(){
         }
         
         if(firstCh == null) firstCh = liveChannels[i].id;
-        $("#channelListLi").append("<li class='channel plr2' onClick='playChannel("+liveChannels[i].id+")'><span class='icon-television' aria-hidden='true'></span>&nbsp;&nbsp;"+liveChannels[i].title+" "+ptv+"</li>");
+        $("#channelListLi").append("<li class='channel plr2' ><span class='icon-television' aria-hidden='true'></span>&nbsp;&nbsp;<span onClick='playChannel("+liveChannels[i].id+")'>"+liveChannels[i].title+"</span> "+ptv+"</li>");
     }
     
     playChannel(firstCh);
