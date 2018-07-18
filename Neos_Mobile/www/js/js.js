@@ -126,13 +126,30 @@ function selectMenu(menuId){
     $("#"+menuId).addClass("menuSelected");
 }
 
+function push_tv(url){
+    var jqxhr = $.getJSON("http://10.3.2.108/cgi-bin/do?cmd=start_file_playback&media_url=udp://@232.1.1.113:1234", function() {
+        
+    }).done(function() {
+          
+    }).fail(function() {
+          
+    }).always(function() {
+          
+    });
+}
+
 function liveTv(){
     
     $("#content").append("<div class='col-lg-9 col-md-9 col-sm-12 col-xs-12 pr0' id='player_area'></div>");
     $("#content").append("<div class='col-lg-3 col-md-3 col-sm-12 col-xs-12' id='channelList'><ul id='channelListLi'></ul></div>");
     for (i = 0; i < liveChannels.length; i++) {
+        var ptv = "";
+        if(push_on_tv==1){
+            ptv="<span class='push_tv_' onclick='push_tv(\""+getURL(liveChannels[i].id)+"\")'><button type='button' class='btn btn-primary'>On TV</button></span>";
+        }
+        
         if(firstCh == null) firstCh = liveChannels[i].id;
-        $("#channelListLi").append("<li class='channel plr2' onClick='playChannel("+liveChannels[i].id+")'><span class='icon-television' aria-hidden='true'></span>&nbsp;&nbsp;"+liveChannels[i].title+"</li>");
+        $("#channelListLi").append("<li class='channel plr2' onClick='playChannel("+liveChannels[i].id+")'><span class='icon-television' aria-hidden='true'></span>&nbsp;&nbsp;"+liveChannels[i].title+" "+ptv+"</li>");
     }
     
     playChannel(firstCh);
